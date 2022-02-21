@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'secondtry'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_43C605439CC440C2A7476B8380364017 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BE2845A8B5EE40ACA7063EAE87C558B8 }}
           package: '*.jar'
