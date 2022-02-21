@@ -28,4 +28,13 @@ public class user {
     public void setDepartment(String department) {
         this.department = department;
     }
+
+    public user() {
+    }
+
+    public user(int id, String username, String department) {
+        this.id = id;
+        this.username = username;
+        this.department = department;
+    }
 }
