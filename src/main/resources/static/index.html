@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Azureexample</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+
+<body>
+
+<div id="app">
+    <div><span>{{username}}</span></div>
+    <br>
+    <div  v-for="item in pic" :key="item">
+        <img :src="item"
+             style="width: 800px;    height: 400px;">
+        <br>
+    </div>
+
+</div>
+
+
+<script>
+    var vue = new Vue({
+        //对象挂载
+        el: "#app",
+        //数据
+        data: {
+            pic: [],
+            username: null
+        },
+        //钩子函数
+        created() {
+            this.find1()
+            this.findPic()
+        },
+        methods: {
+            find1() {
+                axios.get("/userName").then((res) => {
+                    this.username = res.data;
+                })
+            },
+            findPic() {
+                axios.get("/pic").then((res) => {
+                    this.pic = res.data
+                })
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+
